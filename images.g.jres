@@ -4,6 +4,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage"
     },
+    "kQgp0{ZFk80%I}2rr?}A": {
+        "data": "hwQQABAAAAAAAAAAAAAA4AAAAAAAAADuABEAAAAAAO4Q7xEBAAAA5BD/JBEAAAAkIEQkEv//Dy5CRCQS////7kJE4RH//0TvQhQREf//5CRCRBTh8f/kJEJEFOHx/yQuIBLhEv9P4u4Q/yERRERO5BDvESFERO7iABEAACJE5C4AAAAAICIiIg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "RedPanda"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAA4AAAAAAAAADuABEAAAAAAO4Q7xEBAAAA5BD/JBEAAAAkIEQkEv//Dy5CRCQS////7kJE4RH//yTvQhQREf//JCRCRBTh8f+0JEJEFOHx/7QuIBLhEv9P6+4Q/yERRERO5BDvESFERO7iABEAACJE5C4AAAAAICIiIg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "RedPanda0"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
