@@ -229,22 +229,22 @@ function GameMode (enemiesNum: number) {
         . c 1 c f f 1 c 7 6 f 6 6 c c . 
         . c c c c c c c c c c c c . . . 
         `, img`
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . . . . b b 5 b c 5 5 d 4 c . . 
-        . b b b b 5 5 5 b f d d 4 4 4 b 
-        . b d 5 b 5 5 b c b 4 4 4 4 b . 
-        . . b 5 5 b 5 5 5 4 4 4 4 b . . 
-        . . b d 5 5 b 5 5 5 5 5 5 b . . 
-        . b d b 5 5 5 d 5 5 5 5 5 5 b . 
-        b d d c d 5 5 b 5 5 5 5 5 5 b . 
-        c d d d c c b 5 5 5 5 5 5 5 b . 
-        c b d d d d d 5 5 5 5 5 5 5 b . 
-        . c d d d d d d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . c c c c . . . . . . . . 
+        . . c c 5 5 5 5 c c . . . . . . 
+        . c 5 5 5 5 5 5 5 5 c . . . . . 
+        c 5 5 5 5 5 1 f 5 5 5 c . . . . 
+        c 5 5 5 5 5 f f 5 5 5 5 c . . . 
+        c 5 5 5 5 5 5 5 5 5 5 5 c . . . 
+        c c b b 1 b 5 5 5 5 5 5 d c . . 
+        c 5 3 3 3 5 5 5 5 5 d d d c . . 
+        . b 5 5 5 5 5 5 5 5 d d d c . . 
+        . . c b b c 5 5 b d d d d c c . 
+        . c b b c 5 5 b b d d d d c d c 
+        . c c c c c c d d d d d d d d c 
+        . . . c c c c d 5 5 b d d d c . 
+        . . c c c c c b 5 5 b c c c . . 
+        . . c b b b c d 5 5 b c . . . . 
         `, img`
         . . f f f . . . . . . . . . . . 
         f f f c c . . . . . . . . f f f 
@@ -335,6 +335,7 @@ controller.moveSprite(User)
 scene.cameraFollowSprite(User)
 info.setLife(5)
 GameMode(4)
+game.splash("Click A to sit")
 game.onUpdateInterval(10000000, function () {
     GameMode(4)
 })
