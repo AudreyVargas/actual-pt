@@ -1,4 +1,43 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    User,
+    [img`
+        . . e e e . . . . . . . . . . . 
+        . . e 4 1 1 1 . . . . 1 1 1 . . 
+        . . e 1 f f f 2 . . 2 f f f 1 . 
+        . . 4 1 f e 4 4 2 2 4 4 e f 1 . 
+        . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
+        . . . 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . . e 1 2 1 4 4 4 4 4 4 1 2 1 . 
+        . . 2 e 1 2 e 4 1 1 4 e 2 1 . . 
+        . e 4 4 1 2 2 1 4 4 1 2 2 1 . . 
+        . e e e 2 1 1 1 1 1 1 1 1 . . . 
+        . 2 4 4 2 4 4 4 f f f 4 4 . . . 
+        . . 2 4 2 4 4 4 f f f 4 4 . . . 
+        . . . 4 4 f 4 f f f f f . . . . 
+        . . . . 4 f f f f f f . . . . . 
+        `,img`
+        . . e e 1 1 1 . . . . 1 1 1 . . 
+        . . e 1 f f f 2 . . 2 f f f 1 . 
+        . . . 1 f e 4 4 2 2 4 4 e f 1 . 
+        . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
+        . . . 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . . . 1 2 1 4 4 4 4 4 4 1 2 1 . 
+        . . e e 1 2 e 4 4 4 4 e 2 1 . . 
+        . . 2 e 1 2 2 4 1 1 4 2 2 1 . . 
+        . e 4 4 2 1 1 1 4 4 1 1 1 . . . 
+        . e e e 2 4 4 4 f f f 4 4 . . . 
+        . 2 4 4 2 4 4 4 f f f 4 4 . . . 
+        . . 2 4 2 4 4 4 f f f 4 4 . . . 
+        . . . 4 4 f 4 f f f f f . . . . 
+        . . . . 4 f f f f f f . . . . . 
+        `],
+    500,
+    false
+    )
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (sprite, location) {
+    game.showLongText("Congratulations! You have escaped!", DialogLayout.Bottom)
     game.gameOver(true)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -7,11 +46,11 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     [img`
         . . 1 1 1 . . . . 1 1 1 4 e e . 
         . 1 f f f 2 . . 2 f f f 1 4 e . 
-        . 1 f e 4 4 2 2 4 4 e f 1 . . . 
+        . 1 f e 4 4 2 2 4 4 e f 1 4 e . 
         . 1 f 4 4 4 4 4 4 4 4 f 1 . . . 
-        . 1 2 1 1 4 4 4 4 1 1 2 1 2 . . 
-        . 1 2 1 4 4 4 4 4 4 1 1 1 e e . 
-        . . 1 2 e 4 1 1 4 e 2 1 e 4 2 . 
+        . 2 2 1 1 4 4 4 4 1 1 2 2 4 . . 
+        . 1 2 1 4 4 4 4 4 4 1 2 1 e e . 
+        . . 2 2 e 4 1 1 4 e 2 2 e 4 2 . 
         . . 1 2 2 1 e e 1 2 2 1 4 4 e . 
         . . . 1 1 1 1 1 1 1 1 . e e e . 
         . . . 4 f f f f f 4 4 4 4 4 e . 
@@ -19,36 +58,59 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . f f f f f f f f 4 4 4 . . 
         . . . f f f f f f f f f f . . . 
         . . . f f . . f f . . f f . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
         `,img`
         . . . . . . . . . . . . . . . . 
         . . 1 1 1 . . . . 1 1 1 e e . . 
         . 1 f f f 2 . . 2 f f f 1 e . . 
         . 1 f e 4 4 2 2 4 4 e f 1 . . . 
         . 1 f 4 4 4 4 4 4 4 4 f 1 . . . 
-        . 1 2 1 1 4 4 4 4 1 1 2 1 . . . 
-        . 1 1 1 4 4 4 4 4 4 1 1 e e . . 
-        . . 1 2 e 1 1 1 1 e 2 1 e . . . 
-        . . 1 2 2 1 4 4 1 2 2 1 . f f . 
-        . . . 1 1 1 1 1 1 1 1 f f 5 f . 
-        . . . 4 6 6 6 6 6 6 4 4 4 5 f . 
-        . . . 4 5 5 5 5 5 5 5 f f f . . 
-        . . . f 5 4 5 f f f 5 f . . . . 
+        . 2 2 1 1 4 4 4 4 1 1 2 2 e e . 
+        . 1 1 1 4 4 4 4 4 4 1 1 e e 2 . 
+        . . 2 2 e 1 1 1 1 e 2 2 4 4 2 . 
+        . . 1 2 2 1 4 4 1 2 2 1 4 e e . 
+        . . . 1 1 1 1 1 1 1 1 2 4 e 2 . 
+        . . . 4 4 f f f 4 4 4 2 4 4 2 . 
+        . . . 4 f f f f f 4 4 4 4 2 . . 
+        . . . f f f f f f f f f . . . . 
         . . . f f f f f . . f f . . . . 
-        `,img`
         . . . . . . . . . . . . . . . . 
-        . . 4 4 4 . . . . 4 4 4 . . . . 
-        . 4 5 5 5 e . . e 5 5 5 4 . . . 
-        4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
-        4 5 5 4 4 5 5 5 5 4 4 5 5 4 . . 
-        e 5 4 4 5 5 5 5 5 5 4 4 5 e . . 
-        . e e 5 5 5 5 5 5 5 5 e e . . . 
-        . . e 5 f 5 5 5 5 f 5 e . . . . 
-        . . f 5 5 5 4 4 5 5 5 f . f f . 
-        . . . 4 5 5 f f 5 5 6 f f 5 f . 
-        . . . f 6 6 6 6 6 6 4 f 5 5 f . 
-        . . . f 5 5 5 5 5 5 5 4 5 f . . 
-        . . . . f 5 4 5 f 5 f f f . . . 
-        . . . . . f f f f f f f . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . e e e . . 
+        . . 1 1 1 . . . . 1 1 1 4 e . . 
+        . 1 f f f 2 . . 2 f f f 1 e . . 
+        . 1 f e 4 4 2 2 4 4 e f 1 4 . . 
+        . 1 f 4 4 4 4 4 4 4 4 f 1 . . . 
+        . 2 2 1 1 4 4 4 4 1 1 2 2 . . . 
+        . 1 2 1 4 4 4 4 4 4 1 2 1 e . . 
+        . . 1 2 e 4 1 1 4 e 2 1 e 2 . . 
+        . . 1 2 2 1 4 4 1 2 2 1 4 4 e . 
+        . . . 1 1 1 1 1 1 1 1 2 e e e . 
+        . . . 4 4 f f f 4 4 4 2 4 4 2 . 
+        . . . 4 4 f f f 4 4 4 2 4 2 . . 
+        . . . . f f f f f 4 f 4 4 . . . 
+        . . . . . f f f f f f 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . 1 1 2 4 4 4 4 4 2 1 1 . . 
+        . . 1 f f 4 4 4 4 4 4 2 f f 1 . 
+        . . 1 e f 4 4 4 1 4 4 1 f e 1 . 
+        . . . 1 4 4 4 1 1 4 4 1 1 1 . . 
+        . . . 1 2 2 2 e 1 1 1 e 2 1 . . 
+        . . . 1 1 2 2 1 1 1 1 2 1 1 . . 
+        . . . . 1 1 1 1 1 e e 1 1 2 . . 
+        . . . . . f f f f 1 1 f 4 4 2 . 
+        . . . . . f f f f f f f 4 4 2 2 
+        . . . . . f f f f f f f 4 4 4 2 
+        . . . . . f f f f f f 4 4 4 4 2 
+        . . . . . f f 4 4 4 4 2 e e 4 2 
+        . . . . . . f 4 e e 2 e 4 e e 2 
+        . e e 4 4 e e f 4 4 e e 4 2 e 2 
+        e e e e 2 2 e e 2 2 2 e e e 2 2 
         `],
     500,
     false
@@ -60,11 +122,11 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     [img`
         . e e 4 1 1 1 . . . . 1 1 1 . . 
         . e 4 1 f f f 2 . . 2 f f f 1 . 
-        . . . 1 f e 4 4 2 2 4 4 e f 1 . 
+        . e 4 1 f e 4 4 2 2 4 4 e f 1 . 
         . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
-        . . 2 1 2 1 1 4 4 4 4 1 1 2 1 . 
-        . e e 1 1 1 4 4 4 4 4 4 1 2 1 . 
-        . 2 4 e 1 2 e 4 1 1 4 e 2 1 . . 
+        . . 4 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . e e 1 2 1 4 4 4 4 4 4 1 2 1 . 
+        . 2 4 e 2 2 e 4 1 1 4 e 2 2 . . 
         . e 4 4 1 2 2 1 e e 1 2 2 1 . . 
         . e e e . 1 1 1 1 1 1 1 1 . . . 
         . e 4 4 4 4 4 f f f f f 4 . . . 
@@ -72,6 +134,85 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         . . 4 4 4 f f f f f f f f . . . 
         . . . f f f f f f f f f f . . . 
         . . . f f . . f f . . f f . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . e e 1 1 1 . . . . 1 1 1 . . 
+        . . e 1 f f f 2 . . 2 f f f 1 . 
+        . . . 1 f e 4 4 2 2 4 4 e f 1 . 
+        . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
+        . e e 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . 2 e e 1 1 4 4 4 4 4 4 1 1 1 . 
+        . 2 4 4 2 2 e 1 1 1 1 e 2 2 . . 
+        . e e 4 1 2 2 1 4 4 1 2 2 1 . . 
+        . 2 e 4 2 1 1 1 1 1 1 1 1 . . . 
+        . 2 4 4 2 4 4 4 f f f 4 4 . . . 
+        . . 2 4 4 4 4 f f f f f 4 . . . 
+        . . . . f f f f f f f f f . . . 
+        . . . . f f . . f f f f f . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . e e e . . . . . . . . . . . 
+        . . e 4 1 1 1 . . . . 1 1 1 . . 
+        . . e 1 f f f 2 . . 2 f f f 1 . 
+        . . 4 1 f e 4 4 2 2 4 4 e f 1 . 
+        . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
+        . . . 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . . e 1 2 1 4 4 4 4 4 4 1 2 1 . 
+        . . 2 e 1 2 e 4 1 1 4 e 2 1 . . 
+        . e 4 4 1 2 2 1 4 4 1 2 2 1 . . 
+        . e e e 2 1 1 1 1 1 1 1 1 . . . 
+        . 2 4 4 2 4 4 4 f f f 4 4 . . . 
+        . . 2 4 2 4 4 4 f f f 4 4 . . . 
+        . . . 4 4 f 4 f f f f f . . . . 
+        . . . . 4 f f f f f f . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . 2 2 2 2 2 . . . . . . 
+        . . 1 1 2 4 4 4 4 4 2 1 1 . . . 
+        . 1 f f 2 4 4 4 4 4 4 f f 1 . . 
+        . 1 e f 1 4 4 1 4 4 4 f e 1 . . 
+        . . 1 1 1 4 4 1 1 4 4 4 1 . . . 
+        . . 1 2 e 1 1 1 e 2 2 2 1 . . . 
+        . . 1 1 2 1 1 1 1 2 2 1 1 . . . 
+        . . 2 1 1 e e 1 1 1 1 1 . . . . 
+        . 2 4 4 f 1 1 f f f f . . . . . 
+        2 2 4 4 f f f f f f f . . . . . 
+        2 4 4 4 f f f f f f f . . . . . 
+        2 4 4 4 4 f f f f f f . . . . . 
+        2 4 e e 2 4 4 4 4 f f . . . . . 
+        2 e e 4 e 2 e e 4 f . . . . . . 
+        2 e 2 4 e e 4 4 f e e 4 4 e e . 
+        2 2 e e e 2 2 2 e e 2 2 e e e e 
+        `],
+    500,
+    false
+    )
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
+    game.showLongText("Oh no! Its locked, find another way out!", DialogLayout.Bottom)
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    User,
+    [img`
+        . . e e e . . . . . . . . . . . 
+        . . e 4 1 1 1 . . . . 1 1 1 . . 
+        . . e 1 f f f 2 . . 2 f f f 1 . 
+        . . 4 1 f e 4 4 2 2 4 4 e f 1 . 
+        . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
+        . . . 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . . e 1 2 1 4 4 4 4 4 4 1 2 1 . 
+        . . 2 e 1 2 e 4 1 1 4 e 2 1 . . 
+        . e 4 4 1 2 2 1 4 4 1 2 2 1 . . 
+        . e e e 2 1 1 1 1 1 1 1 1 . . . 
+        . 2 4 4 2 4 4 4 f f f 4 4 . . . 
+        . . 2 4 2 4 4 4 f f f 4 4 . . . 
+        . . . 4 4 f 4 f f f f f . . . . 
+        . . . . 4 f f f f f f . . . . . 
         `],
     500,
     false
@@ -142,22 +283,67 @@ function GameMode (enemiesNum: number) {
         }
     }
 }
+info.onLifeZero(function () {
+    game.splash("Oh no! Youve died.")
+    game.gameOver(false)
+    game.setGameOverEffect(false, effects.slash)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairSouth, function (sprite, location) {
+    game.showLongText("Oh no! Its locked, find another way out!", DialogLayout.Bottom)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     sprites.destroy(otherSprite)
+    animation.runImageAnimation(
+    User,
+    [img`
+        . e e 4 1 1 1 . . . . 1 1 1 . . 
+        . e 4 1 f f f 2 . . 2 f f f 1 . 
+        . e 4 1 f e 4 4 2 2 4 4 e f 1 . 
+        . . . 1 f 4 4 4 4 4 4 4 4 f 1 . 
+        . . 4 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . e e 1 2 1 4 4 4 4 4 4 1 2 1 . 
+        . 2 4 e 2 2 e 4 1 1 4 e 2 2 . . 
+        . e 4 4 1 2 2 1 e e 1 2 2 1 . . 
+        . e e e . 1 1 1 1 1 1 1 1 . . . 
+        . e 4 4 4 4 4 f f f f f 4 . . . 
+        . 2 4 4 4 4 4 f f f f f 4 . . . 
+        . . 4 4 4 f f f f f f f f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . f f . . f f . . f f . . . 
+        `,img`
+        . e c 4 1 1 c . . . . 1 1 1 . . 
+        . e c 1 c f c 2 . . 2 f f f 1 . 
+        . e c 1 c e c 4 2 2 4 4 e f 1 . 
+        . . c 1 c 4 c 4 4 4 4 4 4 f 1 . 
+        . . 4 2 2 1 1 4 4 4 4 1 1 2 2 . 
+        . e e 1 2 1 e 4 4 4 4 e 1 2 1 . 
+        . 2 4 e 2 2 e 4 1 1 4 e 2 2 . . 
+        . e 4 4 1 2 2 1 3 3 1 2 2 1 . . 
+        . e e e . 1 1 1 3 3 1 1 1 . . . 
+        . e 4 4 4 4 4 f f f f f 4 . . . 
+        . 2 4 4 4 4 4 f f f f f 4 . . . 
+        . . 4 4 4 f f f f f f f f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . f f . . f f . . f f . . . 
+        `],
+    500,
+    false
+    )
 })
 let enemies: Sprite = null
 let SpawnTiles: tiles.Location[] = []
 let enemiesList: Image[] = []
 let User: Sprite = null
 let Delay = false
+game.showLongText("Escape the maze while avoiding enemies.", DialogLayout.Bottom)
 let Gamemode = 0
 Delay = game.ask("GameMode Easy(A) Hard(B)")
-User = sprites.create(assets.image`RedPanda0`, SpriteKind.Player)
+User = sprites.create(assets.image`RedPanda`, SpriteKind.Player)
 controller.moveSprite(User)
 scene.cameraFollowSprite(User)
 info.setLife(5)
 GameMode(4)
 game.onUpdateInterval(10000000, function () {
-    GameMode(1)
+    GameMode(4)
 })
