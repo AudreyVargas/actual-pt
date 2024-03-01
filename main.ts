@@ -40,6 +40,31 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (spr
     game.showLongText("Congratulations! You have escaped!", DialogLayout.Bottom)
     game.gameOver(true)
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    User,
+    [img`
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . 1 1 2 4 4 4 4 4 2 1 1 . . 
+        . . 1 f f 4 4 4 4 4 4 2 f f 1 . 
+        . . 1 e f 4 4 4 1 4 4 1 f e 1 . 
+        . . . 1 4 4 4 1 1 4 4 1 1 1 . . 
+        . . . 1 2 2 2 e 1 1 1 e 2 1 . . 
+        . . . 1 1 2 2 1 1 1 1 2 1 1 . . 
+        . . . . 1 1 1 1 1 e e 1 1 2 . . 
+        . . . . . f f f f 1 1 f 4 4 2 . 
+        . . . . . f f f f f f f 4 4 2 2 
+        . . . . . f f f f f f f 4 4 4 2 
+        . . . . . f f f f f f 4 4 4 4 2 
+        . . . . . f f 4 4 4 4 2 e e 4 2 
+        . . . . . . f 4 e e 2 e 4 e e 2 
+        . e e 4 4 e e f 4 4 e e 4 2 e 2 
+        e e e e 2 2 e e 2 2 2 e e e 2 2 
+        `],
+    500,
+    false
+    )
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     User,
@@ -94,23 +119,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . f f f f f f 4 . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . 2 2 2 2 2 . . . . . 
-        . . . 1 1 2 4 4 4 4 4 2 1 1 . . 
-        . . 1 f f 4 4 4 4 4 4 2 f f 1 . 
-        . . 1 e f 4 4 4 1 4 4 1 f e 1 . 
-        . . . 1 4 4 4 1 1 4 4 1 1 1 . . 
-        . . . 1 2 2 2 e 1 1 1 e 2 1 . . 
-        . . . 1 1 2 2 1 1 1 1 2 1 1 . . 
-        . . . . 1 1 1 1 1 e e 1 1 2 . . 
-        . . . . . f f f f 1 1 f 4 4 2 . 
-        . . . . . f f f f f f f 4 4 2 2 
-        . . . . . f f f f f f f 4 4 4 2 
-        . . . . . f f f f f f 4 4 4 4 2 
-        . . . . . f f 4 4 4 4 2 e e 4 2 
-        . . . . . . f 4 e e 2 e 4 e e 2 
-        . e e 4 4 e e f 4 4 e e 4 2 e 2 
-        e e e e 2 2 e e 2 2 2 e e e 2 2 
         `],
     500,
     false
@@ -170,23 +178,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . 4 f f f f f f . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . 2 2 2 2 2 . . . . . . 
-        . . 1 1 2 4 4 4 4 4 2 1 1 . . . 
-        . 1 f f 2 4 4 4 4 4 4 f f 1 . . 
-        . 1 e f 1 4 4 1 4 4 4 f e 1 . . 
-        . . 1 1 1 4 4 1 1 4 4 4 1 . . . 
-        . . 1 2 e 1 1 1 e 2 2 2 1 . . . 
-        . . 1 1 2 1 1 1 1 2 2 1 1 . . . 
-        . . 2 1 1 e e 1 1 1 1 1 . . . . 
-        . 2 4 4 f 1 1 f f f f . . . . . 
-        2 2 4 4 f f f f f f f . . . . . 
-        2 4 4 4 f f f f f f f . . . . . 
-        2 4 4 4 4 f f f f f f . . . . . 
-        2 4 e e 2 4 4 4 4 f f . . . . . 
-        2 e e 4 e 2 e e 4 f . . . . . . 
-        2 e 2 4 e e 4 4 f e e 4 4 e e . 
-        2 2 e e e 2 2 2 e e 2 2 e e e e 
         `],
     500,
     false
