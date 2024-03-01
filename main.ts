@@ -32,7 +32,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . 4 4 f 4 f f f f f . . . . 
         . . . . 4 f f f f f f . . . . . 
         `],
-    500,
+    200,
     false
     )
 })
@@ -61,7 +61,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . e e 4 4 e e f 4 4 e e 4 2 e 2 
         e e e e 2 2 e e 2 2 2 e e e 2 2 
         `],
-    500,
+    200,
     false
     )
 })
@@ -120,7 +120,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `],
-    500,
+    200,
     false
     )
 })
@@ -179,8 +179,8 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `],
-    500,
-    false
+    200,
+    true
     )
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
@@ -205,8 +205,8 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . 4 4 f 4 f f f f f . . . . 
         . . . . 4 f f f f f f . . . . . 
         `],
-    500,
-    false
+    200,
+    true
     )
 })
 function GameMode (enemiesNum: number) {
@@ -318,7 +318,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         . . . f f f f f f f f f f . . . 
         . . . f f . . f f . . f f . . . 
         `],
-    500,
+    200,
     false
     )
 })
