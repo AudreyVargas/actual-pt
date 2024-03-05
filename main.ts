@@ -210,7 +210,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function GameMode (enemiesNum: number) {
-    tiles.setCurrentTilemap(tilemap`level1`)
+    tiles.setCurrentTilemap(tilemap`level2`)
     enemiesList = [img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -327,8 +327,8 @@ let SpawnTiles: tiles.Location[] = []
 let enemiesList: Image[] = []
 let User: Sprite = null
 let Delay = false
-game.showLongText("Escape the maze while avoiding enemies.", DialogLayout.Bottom)
 let Gamemode = 0
+game.showLongText("Escape the maze while avoiding enemies.", DialogLayout.Bottom)
 Delay = game.ask("GameMode Easy(A) Hard(B)")
 User = sprites.create(assets.image`RedPanda`, SpriteKind.Player)
 controller.moveSprite(User)
