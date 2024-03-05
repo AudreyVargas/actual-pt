@@ -210,7 +210,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function GameMode (enemiesNum: number) {
-    tiles.setCurrentTilemap(tilemap`level2`)
+    tiles.setCurrentTilemap(tilemap`level1`)
     enemiesList = [img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
